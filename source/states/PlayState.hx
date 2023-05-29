@@ -53,6 +53,7 @@ class PlayState extends FlxState
 
         bg = new FlxSprite().loadGraphic(Paths.image('musicBG'));
         add(bg);
+        
         musplayer = new FlxSprite(0, 0).loadGraphic(Paths.image('radio/musplayer'));
         musplayer.screenCenter();
         musplayer.antialiasing = true;
@@ -67,7 +68,8 @@ class PlayState extends FlxState
         playerneedle.antialiasing = true;
         add(playerneedle);
 
-        songTxt = new Alphabet(musplayer.x + 90, musplayer.y - 120, "Now Playing:" + songs[0].name, true);
+        songTxt = new Alphabet(0, 0, "Press LEFT or RIGHT" + songs[0].name, true);
+        songTxt.screenCenter();
         add(songTxt);
     }
 
@@ -85,17 +87,20 @@ class PlayState extends FlxState
 		    changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
         }
 
-        if(FlxG.sound.music != null)
+        if (FlxG.keys.justPressed.ENTER)
         {
-            Conductor.songPosition = FlxG.sound.music.time;
-            if(!FlxG.sound.music.playing)
+            if(FlxG.sound.music != null)
             {
-                FlxG.sound.music.play();
-            }
-            else
-            {
-                FlxG.sound.music.pause();
-            }
+                Conductor.songPosition = FlxG.sound.music.time;
+                if(!FlxG.sound.music.playing)
+                {
+                    FlxG.sound.music.play();
+                }
+                else
+                {
+                    FlxG.sound.music.pause();
+                }
+            }   
         }
     }
 
@@ -128,12 +133,12 @@ class PlayState extends FlxState
         if(!loadedSongs.contains(songName))
         {
             loadedSongs.push(songName);
-            FlxG.sound.playMusic(Paths.music(songName), 0.75);
+            FlxG.sound.playMusic(Paths.music(songName), 1);
             FlxG.sound.music.pause();
         }
         else
         {
-            FlxG.sound.playMusic(Paths.music(songName), 0.75);
+            FlxG.sound.playMusic(Paths.music(songName), 1);
             FlxG.sound.music.pause();
         }
     }

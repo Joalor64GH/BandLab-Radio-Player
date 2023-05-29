@@ -8,6 +8,8 @@ import flixel.util.FlxColor;
 import alphabet.Alphabet;
 import base.Conductor;
 
+import lime.app.Application;
+
 #if sys
 import sys.io.File;
 import sys.FileSystem;
@@ -18,7 +20,7 @@ using StringTools;
 typedef Song = {
     var name:String;
     var ?song:String;
-    var cover:String;
+    var disc:String;
     var bpm:Float;
 }
 
@@ -26,16 +28,28 @@ class PlayState extends FlxState
 {
     public var bg:FlxSprite;
 
-    public var disc:FlxSprite;
+    public var disc:FlxSprite = new FlxSprite(0, 0);
     public var musplayer:FlxSprite;
     public var playerneedle:FlxSprite;
 
-    public var testTxt:Alphabet;
-
-    var discImg:FlxSprite;
+    public var songTxt:Alphabet;
 
     var curSelected:Int = 0;
-    public var songList:Array<String> = [];
+    var songs:Array<Song> = [
+        {name:"Arcadia Mania", disc:"arcadia", bpm:125},
+        {name:"Christmas Wishes",  disc:"christmas", bpm:130},
+        {name:"Creepy Ol Forest", disc:"creepy", bpm:100},
+        {name:"Dreamy Lo-fi Beats", disc:"dreamy", bpm:120},
+        {name:"Game Development", disc:"game", bpm:130},
+        {name:"GBA Cliche", disc:"gba", bpm:100},
+        {name:"Nighttime Gaming", disc:"nighttime", bpm:120},
+        {name:"Nighttime Gaming REMIX", disc:"nighttimere", bpm:130},
+        {name:"Pure Indian Vibes", disc:"pure", bpm:100},
+        {name:"Relaxing Evening Lo-fi", disc:"relaxing", bpm:120},
+        {name:"Silver Candy", disc:"silver", bpm:135},
+        {name:"Universal Questioning", disc:"universal", bpm:125},
+        {name:"Untitled Lo-fi Song", disc:"untitled", bpm:130}
+    ];
 
     override public function create()
     {
@@ -48,7 +62,7 @@ class PlayState extends FlxState
         musplayer.screenCenter();
         musplayer.antialiasing = true;
         add(musplayer);
-        disc = new FlxSprite(0, 0).loadGraphic(Paths.image('radio/disc'));
+        disc.loadGraphic(Paths.image('discs/default'));
         disc.setPosition(musplayer.x + 268, musplayer.y + 13);
         disc.antialiasing = true;
         disc.angularVelocity = 30;
@@ -58,8 +72,8 @@ class PlayState extends FlxState
         playerneedle.antialiasing = true;
         add(playerneedle);
 
-        testTxt = new Alphabet(musplayer.x + 90, musplayer.y - 120, 'This is a test.', true);
-        add(testTxt);
+        songTxt = new Alphabet(musplayer.x + 90, musplayer.y - 120, "Now Playing:" + songs[0].name, false);
+        add(songTxt);
     }
 
     override public function update(elapsed:Float)
@@ -71,56 +85,56 @@ class PlayState extends FlxState
 		FlxG.switchState(new states.MainMenuState());
         }
 
-        if (FlxG.keys.justPressed.LEFT)
+        if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.RIGHT)
         {
-		    changeSong(-1);
-            loadAll();
-        }
-        else if (FlxG.keys.justPressed.RIGHT)
-        {
-		    changeSong(1);
-            loadAll();
+		    changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
         }
     }
 
-    function loadDisc() // WIP
+    static var loadedSongs:Array<String> = [];
+    function changeSong(change:Int = 0)
     {
-        /*
-        var discImg:FlxSprite;
-        var key:String = Paths.image('discs/' + songName + '_disc');
-        if (FileSystem.exists(key))
-            discImg = new FlxSprite(0, 0).loadGraphic(key);
-        else 
-            discImg = null;
+        if(FlxG.sound.music != null)
+            FlxG.sound.music.stop();
 
-        if (discImg != null)
-            disc = new FlxSprite(0, 0).loadGraphic(Paths.image('radio/disc'));
-        */
-    }
-
-    function loadSong() 
-    {
-        // do nothing
-    }
-
-    function loadText()
-    {
-        // do nothing
-    }
-
-    function loadAll()
-    {
-        loadSong();
-        loadDisc();
-        loadText();
-    }
-
-    function changeSong(number:Int)
-    {
-        curSelected += number;
-        if (curSelected > songList.length - 1)
-            curSelected = songList.length - 1;
-        if (curSelected < 0)
+        curSelected += change;
+        if(curSelected >= songs.length)
             curSelected = 0;
+        else if(curSelected < 0)
+            curSelected = songs.length - 1;
+
+        if(FileSystem.exists(Paths.image('discs/${songs[curSelected].disc}')))
+        {
+            disc.loadGraphic(Paths.image('discs/${songs[curSelected].disc}'));
+        }
+        else
+        {
+           return null;
+           trace('ohno its null');
+        }
+
+        songTxt.text = '< ${songs[curSelected].name} >';
+        Conductor.changeBPM(songs[curSelected].bpm);
+       
+        var songName:String = songs[curSelected].song == null ? songs[curSelected].name.toLowerCase() : songs[curSelected].song;
+
+        if(!loadedSongs.contains(songName))
+        {
+            loadedSongs.push(songName);
+            #if sys
+            sys.thread.Thread.create(() -> {
+                FlxG.sound.playMusic(Paths.music(songName), 0.75);
+                FlxG.sound.music.pause();
+            });
+            #else
+            FlxG.sound.playMusic(Paths.music(songName), 0.75);
+            FlxG.sound.music.pause();
+            #end
+        }
+        else
+        {
+            FlxG.sound.playMusic(Paths.music(songName), 0.75);
+            FlxG.sound.music.pause();
+        }
     }
 }

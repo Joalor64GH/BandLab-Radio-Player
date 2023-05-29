@@ -10,6 +10,11 @@ class Paths
 
 	static var currentLevel:String;
 
+	static public function setCurrentLevel(name:String)
+	{
+		currentLevel = name.toLowerCase();
+	}
+
 	static public function file(file:String)
 	{
 		var path = 'assets/$file';

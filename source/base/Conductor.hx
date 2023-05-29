@@ -1,5 +1,7 @@
 package base;
 
+import flixel.FlxG;
+
 class Conductor
 {
 	public static var bpm:Float = 100;
@@ -13,7 +15,7 @@ class Conductor
 
 	public function new() {}
 
-	public static function changeBPM(newBpm:Int)
+	public static function changeBPM(newBpm:Float)
 	{
 		bpm = newBpm;
 

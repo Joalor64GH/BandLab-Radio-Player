@@ -1,5 +1,9 @@
 package states;
 
+#if sys
+import sys.io.File;
+import sys.FileSystem;
+#end
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
@@ -7,11 +11,6 @@ import flixel.util.FlxColor;
 import lime.app.Application;
 import alphabet.Alphabet;
 import base.Conductor;
-
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
 
 using StringTools;
 
@@ -103,11 +102,12 @@ class PlayState extends FlxState
         if(FileSystem.exists(Paths.image('discs/${songs[curSelected].disc}')))
         {
             disc.loadGraphic(Paths.image('discs/${songs[curSelected].disc}'));
+	    return disc;
         }
         else
         {
            return null;
-           trace('ohno its null');
+	   trace('ohno its null');
         }
 
         songTxt.text = '< ${songs[curSelected].name} >';

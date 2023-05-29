@@ -82,7 +82,7 @@ class CreditsState extends FlxState
 
 		for (i in 0...credits.length)
 		{
-			var creditText:Alphabet = new Alphabet(0, (70 * i) + 30, credits[i].modderName, true, false);
+			var creditText:Alphabet = new Alphabet(0, (70 * i) + 30, credits[i].modderName, true);
 			creditText.isMenuItem = true;
 			creditText.targetY = i;
 			grpCredits.add(creditText);

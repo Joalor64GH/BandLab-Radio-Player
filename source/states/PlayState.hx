@@ -83,8 +83,9 @@ class PlayState extends FlxState
         }
     }
 
-    function loaddisc()
+    function loadDisc() // WIP
     {
+        /*
         var discImg:FlxSprite;
         var key:String = Paths.image('discs/' + songName + '_disc');
         if (FileSystem.exists(key))
@@ -94,6 +95,7 @@ class PlayState extends FlxState
 
         if (discImg != null)
             disc = new FlxSprite(0, 0).loadGraphic(Paths.image('radio/disc'));
+        */
     }
 
     function loadSong() 
@@ -111,7 +113,6 @@ class PlayState extends FlxState
         loadSong();
         loadDisc();
         loadText();
-        Conductor.changeBPM(songbpm);
     }
 
     function changeSong(number:Int)

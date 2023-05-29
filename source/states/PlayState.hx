@@ -8,6 +8,11 @@ import flixel.util.FlxColor;
 import alphabet.Alphabet;
 import base.Conductor;
 
+#if sys
+import sys.io.File;
+import sys.FileSystem;
+#end
+
 using StringTools;
 
 typedef Song = {
@@ -29,7 +34,7 @@ class PlayState extends FlxState
 
     var discImg:FlxSprite;
 
-    var selectedSong:Int = 0;
+    var curSelected:Int = 0;
     public var songList:Array<String> = [];
 
     override public function create()
@@ -83,7 +88,7 @@ class PlayState extends FlxState
         var discImg:FlxSprite;
         var key:String = Paths.image('discs/' + songName + '_disc');
         if (FileSystem.exists(key))
-            discImg = new FlxSprite(0, 0).loadGraphic.(key);
+            discImg = new FlxSprite(0, 0).loadGraphic(key);
         else 
             discImg = null;
 
@@ -111,10 +116,10 @@ class PlayState extends FlxState
 
     function changeSong(number:Int)
     {
-        selectedSong += number;
-        if (selectedSong > songList.length - 1)
-            selectedSong = songList.length - 1;
-        if (selectedSong < 0)
-            selectedSong = 0;
+        curSelected += number;
+        if (curSelected > songList.length - 1)
+            curSelected = songList.length - 1;
+        if (curSelected < 0)
+            curSelected = 0;
     }
 }

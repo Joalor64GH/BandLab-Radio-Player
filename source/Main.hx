@@ -11,6 +11,6 @@ class Main extends Sprite
 	{
 		super();
 
-		addChild(new FlxGame(1280, 720, states.InitialState, #if (flixel < "5.0.0") -1 #end, 60, 60, false, false));
+		addChild(new FlxGame(1280, 720, states.InitialState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
 	}
 }

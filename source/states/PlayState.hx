@@ -53,7 +53,6 @@ class PlayState extends FlxState
 
         bg = new FlxSprite().loadGraphic(Paths.image('musicBG'));
         add(bg);
-        
         musplayer = new FlxSprite(0, 0).loadGraphic(Paths.image('radio/musplayer'));
         musplayer.screenCenter();
         musplayer.antialiasing = true;
@@ -96,7 +95,6 @@ class PlayState extends FlxState
             else
             {
                 FlxG.sound.music.pause();
-                songTxt.changeColor(FlxColor.WHITE);
             }
         }
     }

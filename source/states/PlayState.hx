@@ -111,7 +111,7 @@ class PlayState extends FlxState
         }
 
         songTxt.text = '< ${songs[curSelected].name} >';
-        Conductor.changeBPM(songs[curSelected].bpm);
+        #if (flixel < "5.0.0") Conductor.changeBPM(songs[curSelected].bpm); #end 
        
         var songName:String = songs[curSelected].song == null ? songs[curSelected].name.toLowerCase() : songs[curSelected].song;
 
@@ -119,12 +119,13 @@ class PlayState extends FlxState
         {
             loadedSongs.push(songName);
             FlxG.sound.playMusic(Paths.music(songName), 0.75);
-            FlxG.sound.music.pause();
+            FlxG.sound.music.pause(); 
+	    return flixel.FlxSprite; 
         }
         else
         {
             FlxG.sound.playMusic(Paths.music(songName), 0.75);
-            FlxG.sound.music.pause();
+            FlxG.sound.music.pause(); 
         }
     }
 }

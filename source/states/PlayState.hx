@@ -102,12 +102,10 @@ class PlayState extends FlxState
         if(FileSystem.exists(Paths.image('discs/${songs[curSelected].disc}')))
         {
             disc.loadGraphic(Paths.image('discs/${songs[curSelected].disc}'));
-	    return disc;
         }
         else
         {
-           return null;
-	   trace('ohno its null');
+	   trace('ohno its dont exist');
         }
 
         songTxt.text = '< ${songs[curSelected].name} >';

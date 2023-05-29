@@ -4,11 +4,9 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
-
+import lime.app.Application;
 import alphabet.Alphabet;
 import base.Conductor;
-
-import lime.app.Application;
 
 #if sys
 import sys.io.File;
@@ -27,7 +25,6 @@ typedef Song = {
 class PlayState extends FlxState
 {
     public var bg:FlxSprite;
-
     public var disc:FlxSprite = new FlxSprite(0, 0);
     public var musplayer:FlxSprite;
     public var playerneedle:FlxSprite;
@@ -121,15 +118,8 @@ class PlayState extends FlxState
         if(!loadedSongs.contains(songName))
         {
             loadedSongs.push(songName);
-            #if sys
-            sys.thread.Thread.create(() -> {
-                FlxG.sound.playMusic(Paths.music(songName), 0.75);
-                FlxG.sound.music.pause();
-            });
-            #else
             FlxG.sound.playMusic(Paths.music(songName), 0.75);
             FlxG.sound.music.pause();
-            #end
         }
         else
         {

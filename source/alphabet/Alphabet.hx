@@ -243,7 +243,6 @@ class Alphabet extends FlxSpriteGroup
 	}
 }
 
-
 ///////////////////////////////////////////
 // ALPHABET LETTERS, SYMBOLS AND NUMBERS //
 ///////////////////////////////////////////
@@ -328,7 +327,7 @@ class AlphaCharacter extends FlxSprite
 		super(x, y);
 		this.parent = parent;
 		image = 'alphabet';
-		antialiasing = ClientPrefs.globalAntialiasing;
+		antialiasing = true;
 
 		var curLetter:Letter = allLetters.get('?');
 		var lowercase = character.toLowerCase();

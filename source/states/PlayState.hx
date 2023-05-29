@@ -96,7 +96,7 @@ class PlayState extends FlxState
             else
             {
                 FlxG.sound.music.pause();
-                songText.changeColor(FlxColor.WHITE);
+                songTxt.changeColor(FlxColor.WHITE);
             }
         }
     }

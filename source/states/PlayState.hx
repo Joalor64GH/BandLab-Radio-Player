@@ -87,11 +87,11 @@ class PlayState extends FlxState
 		    changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
         }
 
-        if (FlxG.keys.justPressed.ENTER)
+        if(FlxG.sound.music != null)
         {
-            if(FlxG.sound.music != null)
+            Conductor.songPosition = FlxG.sound.music.time;
+            if (FlxG.keys.justPressed.ENTER)
             {
-                Conductor.songPosition = FlxG.sound.music.time;
                 if(!FlxG.sound.music.playing)
                 {
                     FlxG.sound.music.play();
@@ -99,7 +99,7 @@ class PlayState extends FlxState
                 else
                 {
                     FlxG.sound.music.pause();
-                }
+                }  
             }   
         }
     }

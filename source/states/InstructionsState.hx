@@ -29,7 +29,7 @@ class InstructionsState extends FlxState
 	            "Use the UP and DOWN keys to" 
 		    + "\nnavigate through the menus."
 		    + "\nUse LEFT and RIGHT to switch songs."
-			+ "\nPress ENTER to play the song."
+		+ "\nPress ENTER to play the song."
 		    + "\nWhen you are done listening,"
 		    + "\npress ESC to go back.", 32);
 	DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);

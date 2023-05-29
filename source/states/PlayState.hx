@@ -68,7 +68,7 @@ class PlayState extends FlxState
         playerneedle.antialiasing = true;
         add(playerneedle);
 
-        songTxt = new Alphabet(musplayer.x + 90, musplayer.y - 120, "Now Playing:" + songs[0].name, false);
+        songTxt = new Alphabet(musplayer.x + 90, musplayer.y - 120, "Now Playing:" + songs[0].name, true);
         add(songTxt);
     }
 
@@ -84,6 +84,20 @@ class PlayState extends FlxState
         if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.RIGHT)
         {
 		    changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
+        }
+
+        if(FlxG.sound.music != null)
+        {
+            Conductor.songPosition = FlxG.sound.music.time;
+            if(!FlxG.sound.music.playing)
+            {
+                FlxG.sound.music.play();
+            }
+            else
+            {
+                FlxG.sound.music.pause();
+                songText.changeColor(FlxColor.WHITE);
+            }
         }
     }
 

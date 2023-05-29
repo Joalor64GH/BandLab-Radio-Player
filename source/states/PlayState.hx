@@ -111,7 +111,7 @@ class PlayState extends FlxState
         }
 
         songTxt.text = '< ${songs[curSelected].name} >';
-        Conductor.changeBPM(songs[curSelected].bpm);
+        #if (flixel < "5.0.0") Conductor.changeBPM(songs[curSelected].bpm); #end 
        
         var songName:String = songs[curSelected].song == null ? songs[curSelected].name.toLowerCase() : songs[curSelected].song;
 

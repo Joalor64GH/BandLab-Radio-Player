@@ -1,2 +1,2 @@
-# BandLab-Radio-Player
-A radio built with HaxeFlixel that plays my BandLab tracks.
+# BandLab Radio Player
+The name says it all.

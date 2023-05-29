@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<!-- _________________________ Application Settings _________________________ -->
+
+	<!--Main Stuff-->
+	<app title="BandLab OST Player" main="Main" version="0.0.1" company="Joalor64GH" />
+	<app file="OSTPlayer_WIN" if="windows" />
+	<app file="OSTPlayer_APP" if="linux" />
+	<app file="OSTPlayer_MAC" if="mac" />
+
+	<!--Preloader-->
+	<app preloader="flixel.system.FlxPreloader" />
+	<set name="SWF_VERSION" value="11.8" />
+
+	<!-- ____________________________ Window Settings ___________________________ -->
+
+	<!--All targets-->
+	<window width="1280" height="720" fps="" background="#000000" hardware="true" vsync="false" />
+
+	<!--HTML5-->
+	<window if="html5" resizable="false" />
+
+	<!--Desktop-->
+	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
+
+	<!--macOS-->
+	<window if="mac" orientation="auto" fullscreen="false" resizable="true" vsync="false" allow-high-dpi="true" />
+
+	<!-- _____________________________ Export Folder ____________________________ -->
+
+	<set name="BUILD_DIR" value="export/debug" if="debug" />
+	<set name="BUILD_DIR" value="export/release" unless="debug" />
+
+	<!-- _____________________________ Path Settings ____________________________ -->
+
+	<source path="source" />
+	<assets path="assets" exclude="*.mp3"/>
+
+	<!-- _______________________________ Libraries ______________________________ -->
+
+	<haxelib name="flixel" />
+	<haxelib name="flixel-addons" />
+	<haxelib name="flixel-ui" />
+	<haxelib name="flixel-tools" />
+	<haxelib name="hxcpp-debug-server" if="desktop debug" />
+
+	<!-- ______________________________ Haxedefines _____________________________ -->
+
+        <!--Enable the Flixel core recording system-->
+        <haxedef name="FLX_RECORD" />
+
+	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
+	<section if="mobile">
+		<haxedef name="FLX_NO_MOUSE" />
+		<haxedef name="FLX_NO_KEYBOARD" />
+	</section>
+	<haxedef name="FLX_NO_TOUCH" if="desktop" />
+
+	<!--Disable the Flixel core focus lost screen-->
+	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
+
+	<section unless="debug">
+		<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
+		<haxedef name="FLX_NO_DEBUG" />
+
+		<!--Enable this for Nape release builds for a serious peformance improvement-->
+		<haxedef name="NAPE_RELEASE_BUILD" />
+	</section>
+
+	<!-- _________________________________ Custom _______________________________ -->
+
+	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
+
+	<!-- ________________________ Import Linux Stuff _____________________________ -->
+    
+	<target id="haxe" tool="linker" if="linux">
+		<lib name="/usr/lib64/libX11.so" if="HXCPP_M64" />
+	</target>
+</project>

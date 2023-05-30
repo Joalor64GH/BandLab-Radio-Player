@@ -16,6 +16,7 @@ using StringTools;
 
 typedef Song = {
     var name:String;
+    var ?song:String;
     var disc:String;
     var bpm:Float;
 }

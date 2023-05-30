@@ -77,16 +77,7 @@ class CreditsState extends FlxState
 		descText.borderSize = 2.4;
 		add(descText);
 
-		grpCredits = new FlxTypedGroup<Alphabet>();
-		add(grpCredits);
-
-		for (i in 0...credits.length)
-		{
-			var creditText:Alphabet = new Alphabet(90, 320, credits[i].modderName, true);
-			creditText.isMenuItem = true;
-			creditText.targetY = i - curSelected;
-			grpCredits.add(creditText);
-		}
+		initOptions();
 
 		changeSelection();
 
@@ -99,6 +90,20 @@ class CreditsState extends FlxState
 		super.create();
 	}
 
+	function initOptions()
+	{
+		grpCredits = new FlxTypedGroup<Alphabet>();
+		add(grpCredits);
+
+		for (i in 0...credits.length)
+		{
+			var creditText:Alphabet = new Alphabet(90, 320, credits[i].modderName, true);
+			creditText.isMenuItem = true;
+			creditText.targetY = i - curSelected;
+			grpCredits.add(creditText);
+		}
+	}
+
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
@@ -107,13 +112,9 @@ class CreditsState extends FlxState
 		if (FlxG.keys.pressed.SHIFT)
 			shiftMult = 3;
 
-		if (FlxG.keys.justPressed.UP)
+		if (FlxG.keys.justPressed.UP || FlxG.keys.justPressed.DOWN)
 		{
-			changeSelection(-shiftMult);
-		}
-		if (FlxG.keys.justPressed.DOWN)
-		{
-			changeSelection(shiftMult);
+			changeSelection(FlxG.keys.justPressed.UP ? -shiftMult : shiftMult);
 		}
 
 		if (FlxG.mouse.wheel != 0)

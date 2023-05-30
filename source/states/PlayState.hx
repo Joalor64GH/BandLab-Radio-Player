@@ -32,19 +32,19 @@ class PlayState extends FlxState
 
     var curSelected:Int = 0;
     var songs:Array<Song> = [
-        {name:"Arcadia Mania", disc:"arcadia", bpm:125},
-        {name:"Christmas Wishes",  disc:"christmas", bpm:130},
-        {name:"Creepy Ol Forest", disc:"creepy", bpm:100},
-        {name:"Dreamy Lo-fi Beats", disc:"dreamy", bpm:120},
-        {name:"Game Development", disc:"game", bpm:130},
-        {name:"GBA Cliche", disc:"gba", bpm:100},
-        {name:"Nighttime Gaming", disc:"nighttime", bpm:120},
-        {name:"Nighttime Gaming REMIX", disc:"nighttimere", bpm:130},
-        {name:"Pure Indian Vibes", disc:"pure", bpm:100},
-        {name:"Relaxing Evening Lo-fi", disc:"relaxing", bpm:120},
-        {name:"Silver Candy", disc:"silver", bpm:135},
-        {name:"Universal Questioning", disc:"universal", bpm:125},
-        {name:"Untitled Lo-fi Song", disc:"untitled", bpm:130}
+        {name:"Arcadia Mania", song:"arcadia-mania", disc:"arcadia", bpm:125},
+        {name:"Christmas Wishes",  song:"christmas-wishes", disc:"christmas", bpm:130},
+        {name:"Creepy Ol Forest", song:"creepy-ol-forest", disc:"creepy", bpm:100},
+        {name:"Dreamy Lo-fi Beats", song:"dreamy-lo-fi-beats", disc:"dreamy", bpm:120},
+        {name:"Game Development", song:"game-development", disc:"game", bpm:130},
+        {name:"GBA Cliche", song:"gba-cliche", disc:"gba", bpm:100},
+        {name:"Nighttime Gaming", song:"nighttime-gaming", disc:"nighttime", bpm:120},
+        {name:"Nighttime Gaming REMIX", song:"nighttime-gaming-remix", disc:"nighttimere", bpm:130},
+        {name:"Pure Indian Vibes", song:"pure-indian-vibes", disc:"pure", bpm:100},
+        {name:"Relaxing Evening Lo-fi", song:"relaxing-evening-lo-fi", disc:"relaxing", bpm:120},
+        {name:"Silver Candy", song:"silver-candy", disc:"silver", bpm:135},
+        {name:"Universal Questioning", song:"universal-questioning", disc:"universal", bpm:125},
+        {name:"Untitled Lo-fi Song", song:"untitled-lo-fi-song", disc:"untitled", bpm:130}
     ];
 
     override public function create()

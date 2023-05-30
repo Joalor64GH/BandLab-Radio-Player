@@ -16,7 +16,6 @@ using StringTools;
 
 typedef Song = {
     var name:String;
-    var ?song:String;
     var disc:String;
     var bpm:Float;
 }
@@ -68,7 +67,7 @@ class PlayState extends FlxState
         playerneedle.antialiasing = true;
         add(playerneedle);
 
-        songTxt = new Alphabet(0, 0, "Press LEFT or RIGHT" + songs[0].name, true);
+        songTxt = new Alphabet(musplayer.x + 90, 0, songs[0].name, true);
         songTxt.screenCenter();
         add(songTxt);
     }

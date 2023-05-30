@@ -1,4 +1,4 @@
-package states;
+package;
 
 // since a substate can't be the inital state, we make a temporary state
 class InitialState extends flixel.FlxState {

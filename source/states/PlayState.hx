@@ -74,6 +74,8 @@ class PlayState extends MusicBeatState
         songTxt = new Alphabet(musplayer.x + 90, 0, songs[0].name, true);
         songTxt.screenCenter();
         add(songTxt);
+
+        changeSong();
     }
 
     override public function update(elapsed:Float)
@@ -115,10 +117,14 @@ class PlayState extends MusicBeatState
         else if(curSelected < 0)
             curSelected = songs.length - 1;
 
-        if(FileSystem.exists(Paths.image('discs/${songs[curSelected].disc}')))
+        if(FileSystem.exists(Paths.image('discs/${songs[curSelected].disc}'))) 
+        {
             disc.loadGraphic(Paths.image('discs/${songs[curSelected].disc}'));
-        else
+        }
+        else 
+        {
 	   trace('ohno its dont exist');
+        }
 
         songTxt.text = '< ${songs[curSelected].name} >';
         Conductor.changeBPM(songs[curSelected].bpm);
@@ -142,9 +148,13 @@ class PlayState extends MusicBeatState
     {
         super.beatHit();
 
-        if (FlxG.keys.justPressed.ENTER)
+        if (FlxG.keys.justPressed.ENTER) 
+        {
             FlxTween.tween(FlxG.camera, {zoom:1.03}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
-        else
+        } 
+        else 
+        {
             FlxTween.tween(FlxG.camera, {zoom:0}, 0, {ease: FlxEase.quadOut, type: BACKWARD});
+        }
     }
 }

@@ -7,6 +7,9 @@ import sys.FileSystem;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
+import flixel.tween.FlxTween;
+import states.MusicBeatState;
+import flixel.tween.FlxEase;
 import flixel.util.FlxColor;
 import lime.app.Application;
 import alphabet.Alphabet;
@@ -16,12 +19,12 @@ using StringTools;
 
 typedef Song = {
     var name:String;
-    var ?song:String;
+    var song:String;
     var disc:String;
     var bpm:Float;
 }
 
-class PlayState extends FlxState
+class PlayState extends states.MusicBeatState
 {
     public var bg:FlxSprite;
     public var disc:FlxSprite = new FlxSprite(0, 0);
@@ -78,14 +81,10 @@ class PlayState extends FlxState
         super.update(elapsed);
 
         if (FlxG.keys.justPressed.ESCAPE)
-        {
 		FlxG.switchState(new states.MainMenuState());
-        }
 
         if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.RIGHT)
-        {
 		    changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
-        }
 
         if(FlxG.sound.music != null)
         {
@@ -117,13 +116,9 @@ class PlayState extends FlxState
             curSelected = songs.length - 1;
 
         if(FileSystem.exists(Paths.image('discs/${songs[curSelected].disc}')))
-        {
             disc.loadGraphic(Paths.image('discs/${songs[curSelected].disc}'));
-        }
         else
-        {
 	   trace('ohno its dont exist');
-        }
 
         songTxt.text = '< ${songs[curSelected].name} >';
         Conductor.changeBPM(songs[curSelected].bpm);
@@ -141,5 +136,15 @@ class PlayState extends FlxState
             FlxG.sound.playMusic(Paths.music(songName), 1);
             FlxG.sound.music.pause();
         }
+    }
+
+    override function beatHit()
+    {
+        super.beatHit();
+
+        if (FlxG.keys.justPressed.ENTER)
+            FlxTween.tween(FlxG.camera, {zoom:1.03}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
+        else
+            FlxTween.tween(FlxG.camera, {zoom:0}, 0, {ease: FlxEase.quadOut, type: BACKWARD});
     }
 }

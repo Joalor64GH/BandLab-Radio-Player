@@ -1,0 +1,30 @@
+package states;
+
+import flixel.FlxG;
+import flixel.FlxState;
+
+class MusicBeatState extends FlxState
+{
+	private var curBeat:Int;
+
+	override function create()
+	{
+		super.create();
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+	}
+
+	function stepHit(step:Int):Void
+	{
+		if (step % 4 == 0)
+			beatHit();
+	}
+
+	function beatHit(beat:Int):Void 
+    {
+        // do nothing
+    }
+}

@@ -1,5 +1,9 @@
 package states;
 
+#if sys
+import sys.io.File;
+import sys.FileSystem;
+#end
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
@@ -9,13 +13,10 @@ import flixel.tweens.FlxTween;
 import flixel.addons.text.FlxTypeText;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import lime.app.Application;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import openfl.Assets;
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
 
 import alphabet.Alphabet;
 import base.CoolUtil;
@@ -113,14 +114,10 @@ class CreditsState extends FlxState
 			shiftMult = 3;
 
 		if (FlxG.keys.justPressed.UP || FlxG.keys.justPressed.DOWN)
-		{
 			changeSelection(FlxG.keys.justPressed.UP ? -shiftMult : shiftMult);
-		}
 
 		if (FlxG.mouse.wheel != 0)
-		{
 			changeSelection(-Std.int(FlxG.mouse.wheel));
-		}
 
 		if (FlxG.keys.justPressed.ESCAPE)
 			FlxG.switchState(new states.MainMenuState());

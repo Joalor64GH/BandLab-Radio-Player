@@ -1,6 +1,6 @@
 package;
 
-// since a substate can't be the inital state, we make a temporary state
+// since a substate can't be the initial state, we make a temporary state
 class Init extends flixel.FlxState {
     override function create() {
         flixel.FlxG.switchState(new states.MainMenuState());

@@ -27,6 +27,7 @@ class MainMenuState extends Menu
 			'Exit'
 		];
 		Menu.includeExitBtn = false;
+		// Callback
 		Menu.callback = (option:MenuSelection) ->
 		{
 			trace('Epic menu option ${option}');

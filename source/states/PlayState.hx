@@ -7,11 +7,11 @@ import sys.FileSystem;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
-import flixel.tween.FlxTween;
-import states.MusicBeatState;
-import flixel.tween.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 import flixel.util.FlxColor;
 import lime.app.Application;
+import states.MusicBeatState;
 import alphabet.Alphabet;
 import base.Conductor;
 
@@ -24,7 +24,7 @@ typedef Song = {
     var bpm:Float;
 }
 
-class PlayState extends states.MusicBeatState
+class PlayState extends MusicBeatState
 {
     public var bg:FlxSprite;
     public var disc:FlxSprite = new FlxSprite(0, 0);

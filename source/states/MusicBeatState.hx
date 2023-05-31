@@ -5,8 +5,6 @@ import flixel.FlxState;
 
 class MusicBeatState extends FlxState
 {
-	private var curBeat:Int;
-
 	override function create()
 	{
 		super.create();
@@ -23,7 +21,7 @@ class MusicBeatState extends FlxState
 			beatHit();
 	}
 
-	function beatHit(beat:Int):Void 
+	function beatHit():Void 
     {
         // do nothing
     }

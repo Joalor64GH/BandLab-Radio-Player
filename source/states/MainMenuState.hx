@@ -43,7 +43,7 @@ class MainMenuState extends Menu
 				case 2:
 					trace('Credits');
 					FlxG.switchState(new states.CreditsState());
-				case 4:
+				case 3:
 					trace('Exit');
 					#if sys
 					Sys.exit(0);

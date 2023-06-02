@@ -6,6 +6,8 @@ class NativeUtil
 	public static function enableDarkMode()
 	{
 		BuildFix.enableDarkMode();
+		lime.app.Application.current.window.borderless = true;
+		lime.app.Application.current.window.borderless = false;
 	}
 	#end
 }

@@ -34,6 +34,7 @@ class PlayState extends MusicBeatState
     public var songTxt:Alphabet;
 
     var curSelected:Int = 0;
+
     var songs:Array<Song> = [
         {name:"Arcadia Mania", song:"arcadia-mania", disc:"arcadia", bpm:125},
         {name:"Christmas Wishes",  song:"christmas-wishes", disc:"christmas", bpm:130},
@@ -71,7 +72,8 @@ class PlayState extends MusicBeatState
         playerneedle.antialiasing = true;
         add(playerneedle);
 
-        songTxt = new Alphabet(0, musplayer.y - 120, songs[0].name, true);
+        songTxt = new Alphabet(0, 0, songs[curSelected].name, true);
+        songTxt.setPosition(50, musplayer.y - 120);
         add(songTxt);
 
         changeSong();

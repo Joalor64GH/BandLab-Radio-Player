@@ -23,16 +23,21 @@ class Paths
 
 		return path;
 	}
-	
+
 	inline static public function txt(key:String)
 	{
 		return file('data/$key.txt');
 	}
 
-        inline static public function xml(key:String)
+    inline static public function xml(key:String)
 	{
 		return file('data/$key.xml');
 	}
+
+    inline static public function json(key:String)
+	{
+		return file('data/$key.json');
+	}	
 
 	inline static public function sound(key:String)
 	{
@@ -68,4 +73,4 @@ class Paths
 	{
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key), file('images/$key.txt'));
 	}
-}  
+}

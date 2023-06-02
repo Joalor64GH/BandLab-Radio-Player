@@ -22,7 +22,7 @@ class MusicBeatState extends FlxState
 	}
 
 	function beatHit():Void 
-    {
-        // do nothing
-    }
+    	{
+        	// do nothing
+    	}
 }

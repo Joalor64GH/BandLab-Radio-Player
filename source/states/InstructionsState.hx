@@ -25,7 +25,7 @@ class InstructionsState extends FlxState
 	bg.antialiasing = true;
 	add(bg);
 
-        DisplayText = new FlxText(0, 0, FlxG.width, 
+        DisplayText = new FlxText(0, 200, FlxG.width, 
 	            "Use the UP and DOWN keys to" 
 		    + "\nnavigate through the menus."
 		    + "\nUse LEFT and RIGHT to switch songs."

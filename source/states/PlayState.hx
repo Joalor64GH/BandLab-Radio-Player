@@ -71,7 +71,7 @@ class PlayState extends MusicBeatState
         playerneedle.antialiasing = true;
         add(playerneedle);
 
-        songTxt = new Alphabet(musplayer.x + 90, 0, songs[0].name, true);
+        songTxt = new Alphabet(0, musplayer.y - 120, songs[0].name, true);
         songTxt.screenCenter();
         add(songTxt);
 
@@ -148,13 +148,13 @@ class PlayState extends MusicBeatState
     {
         super.beatHit();
 
-        if (FlxG.keys.justPressed.ENTER) 
+        if (!FlxG.keys.justPressed.ENTER) 
         {
-            FlxTween.tween(FlxG.camera, {zoom:1.03}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
+            FlxTween.tween(FlxG.camera, {zoom:0}, 0, {ease: FlxEase.quadOut, type: BACKWARD});
         } 
         else 
         {
-            FlxTween.tween(FlxG.camera, {zoom:0}, 0, {ease: FlxEase.quadOut, type: BACKWARD});
+            FlxTween.tween(FlxG.camera, {zoom:1.03}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
         }
     }
 }

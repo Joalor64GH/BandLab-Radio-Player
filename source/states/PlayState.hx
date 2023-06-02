@@ -7,11 +7,8 @@ import sys.FileSystem;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
-import flixel.tweens.FlxTween;
-import flixel.tweens.FlxEase;
 import flixel.util.FlxColor;
 import lime.app.Application;
-import states.MusicBeatState;
 import alphabet.Alphabet;
 import base.Conductor;
 
@@ -24,7 +21,7 @@ typedef Song = {
     var bpm:Float;
 }
 
-class PlayState extends MusicBeatState
+class PlayState extends FlxState
 {
     public var bg:FlxSprite;
     public var disc:FlxSprite = new FlxSprite(0, 0);
@@ -81,11 +78,11 @@ class PlayState extends MusicBeatState
     {
         super.update(elapsed);
 
-        if (FlxG.keys.justPressed.ESCAPE)
-		FlxG.switchState(new states.MainMenuState());
-
         if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.RIGHT)
 		changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
+
+        if (FlxG.keys.justPressed.ESCAPE)
+		FlxG.switchState(new states.MainMenuState());
 
         if(FlxG.sound.music != null)
         {
@@ -140,20 +137,6 @@ class PlayState extends MusicBeatState
         {
             FlxG.sound.playMusic(Paths.music(songName), 1);
             FlxG.sound.music.pause();
-        }
-    }
-
-    override function beatHit()
-    {
-        super.beatHit();
-
-        if (!FlxG.keys.justPressed.ENTER) 
-        {
-            FlxTween.tween(FlxG.camera, {zoom:0}, 0, {ease: FlxEase.quadOut, type: BACKWARD});
-        } 
-        else 
-        {
-            FlxTween.tween(FlxG.camera, {zoom:1.03}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
         }
     }
 }

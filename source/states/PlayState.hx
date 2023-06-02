@@ -72,7 +72,6 @@ class PlayState extends MusicBeatState
         add(playerneedle);
 
         songTxt = new Alphabet(0, musplayer.y - 120, songs[0].name, true);
-        songTxt.screenCenter();
         add(songTxt);
 
         changeSong();

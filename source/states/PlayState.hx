@@ -86,7 +86,7 @@ class PlayState extends MusicBeatState
 		FlxG.switchState(new states.MainMenuState());
 
         if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.RIGHT)
-		    changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
+		changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
 
         if(FlxG.sound.music != null)
         {

@@ -34,11 +34,6 @@ class Paths
 		return file('data/$key.xml');
 	}
 
-    inline static public function json(key:String)
-	{
-		return file('data/$key.json');
-	}	
-
 	inline static public function sound(key:String)
 	{
 		return file('sounds/$key.$SOUND_EXT');

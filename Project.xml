@@ -43,6 +43,7 @@
 	<haxelib name="flixel-addons" />
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel-tools" />
+
 	<haxelib name="hxcpp-debug-server" if="desktop debug" />
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
@@ -68,9 +69,12 @@
 		<haxedef name="NAPE_RELEASE_BUILD" />
 	</section>
 
-	<!-- _________________________________ Custom _______________________________ -->
+	<!-- _________________________________ Icons _______________________________ -->
 
-	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
+	<icon path="embed/icon16.png" size='16'/>
+	<icon path="embed/icon32.png" size='32'/>
+	<icon path="embed/icon64.png" size='64'/>
+	<icon path="embed/iconOG.png" />
 
 	<!-- ________________________ Import Linux Stuff _____________________________ -->
     

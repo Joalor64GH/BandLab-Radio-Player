@@ -31,7 +31,6 @@ class PlayState extends FlxState
     public var songTxt:Alphabet;
 
     var curSelected:Int = 0;
-
     var songs:Array<Song> = [
         {name:"Arcadia Mania", song:"arcadia-mania", disc:"arcadia", bpm:125},
         {name:"Christmas Wishes",  song:"christmas-wishes", disc:"christmas", bpm:130},
@@ -50,6 +49,8 @@ class PlayState extends FlxState
 
     override public function create()
     {
+        openfl.system.System.gc();
+
         super.create();
 
         bg = new FlxSprite().loadGraphic(Paths.image('musicBG'));
@@ -80,17 +81,24 @@ class PlayState extends FlxState
     {
         super.update(elapsed);
 
-        if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.RIGHT)
-		changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
+        if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.RIGHT) 
+        {
+            FlxG.sound.play(Paths.sound('switchbtn'));
+		    changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
+        }
 
-        if (FlxG.keys.justPressed.ESCAPE)
-		FlxG.switchState(new states.MainMenuState());
+        if (FlxG.keys.justPressed.ESCAPE) 
+        {
+		    FlxG.switchState(new states.MainMenuState());
+            FlxG.sound.music.volume = 0;
+        }
 
         if(FlxG.sound.music != null)
         {
             Conductor.songPosition = FlxG.sound.music.time;
             if (FlxG.keys.justPressed.ENTER)
             {
+                FlxG.sound.play(Paths.sound('playbtn'));
                 if(!FlxG.sound.music.playing)
                 {
                     FlxG.sound.music.play();

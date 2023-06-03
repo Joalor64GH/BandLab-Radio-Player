@@ -1,39 +1,27 @@
 package states;
 
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
-import flixel.math.FlxMath;
-import flash.text.TextField;
-import flixel.tweens.FlxTween;
-import flixel.addons.text.FlxTypeText;
-import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import lime.app.Application;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
-import openfl.Assets;
-
 import alphabet.Alphabet;
 import base.CoolUtil;
+
+import openfl.Assets;
 
 using StringTools;
 
 class CreditsState extends FlxState
 {
-	var credits:Array<CreditsMetadata> = [];
-
 	static var curSelected:Int = 0;
 
 	private var grpCredits:FlxTypedGroup<Alphabet>;
 
+	var credits:Array<CreditsMetadata> = [];
 	var descText:FlxText;
 	var bg:FlxSprite;
-	var colorTween:FlxTween;
 
 	override function create()
 	{
@@ -52,8 +40,7 @@ class CreditsState extends FlxState
 		{
 			trace("OOPS! Could not find 'creditsList.txt'!");
 			trace("Replacing it with normal credits...");
-			initCreditlist = "Joalor64 YT:Main Programmer".trim()
-				.split('\n');
+			initCreditlist = "Joalor64 YT:Main Programmer".trim().split('\n');
 
 			for (i in 0...initCreditlist.length)
 			{
@@ -79,7 +66,6 @@ class CreditsState extends FlxState
 		add(descText);
 
 		initOptions();
-
 		changeSelection();
 
 		var descText:FlxText = new FlxText(50, 600, 1180, "", 32);

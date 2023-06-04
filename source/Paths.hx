@@ -29,7 +29,7 @@ class Paths
 		return file('data/$key.txt');
 	}
 
-    inline static public function xml(key:String)
+	inline static public function xml(key:String)
 	{
 		return file('data/$key.xml');
 	}

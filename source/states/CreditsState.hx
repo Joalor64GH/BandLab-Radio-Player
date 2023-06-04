@@ -9,6 +9,7 @@ import flixel.text.FlxText;
 import alphabet.Alphabet;
 import base.CoolUtil;
 
+import lime.app.Application;
 import openfl.Assets;
 
 using StringTools;
@@ -18,7 +19,6 @@ class CreditsState extends FlxState
 	static var curSelected:Int = 0;
 
 	private var grpCredits:FlxTypedGroup<Alphabet>;
-
 	var credits:Array<CreditsMetadata> = [];
 	var descText:FlxText;
 	var bg:FlxSprite;
@@ -55,7 +55,7 @@ class CreditsState extends FlxState
 		}
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuBG'));
-		bg.color = FlxColor.PINK;
+		bg.color = FlxColor.BLUE;
 		add(bg);
 
 		descText = new FlxText(50, 600, 1180, "", 32);

@@ -9,6 +9,7 @@ import lime.app.Application;
 
 class MainMenuState extends Menu
 {
+	public static var gameVersion:String = '0.1.0';
 	var bg:FlxSprite;
 
 	override public function create()
@@ -27,7 +28,6 @@ class MainMenuState extends Menu
 			'Exit'
 		];
 		Menu.includeExitBtn = false;
-		// Callback
 		Menu.callback = (option:MenuSelection) ->
 		{
 			trace('Epic menu option ${option}');
@@ -55,7 +55,7 @@ class MainMenuState extends Menu
 			}
 		}
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 24, 0, "BRP v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 24, 0, "BRP v" + gameVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);

@@ -71,10 +71,10 @@
 
 	<!-- _________________________________ Icons _______________________________ -->
 
-	<icon path="embed/icon16.png" size='16'/>
-	<icon path="embed/icon32.png" size='32'/>
-	<icon path="embed/icon64.png" size='64'/>
-	<icon path="embed/iconOG.png" />
+	<icon path="embed/icons/icon16.png" size='16'/>
+	<icon path="embed/icons/icon32.png" size='32'/>
+	<icon path="embed/icons/icon64.png" size='64'/>
+	<icon path="embed/icons/iconOG.png" />
 
 	<!-- ________________________ Import Linux Stuff _____________________________ -->
     

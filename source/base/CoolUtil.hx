@@ -13,4 +13,12 @@ class CoolUtil
 	inline public static function coolTextFile(path:String):Array<String> {
 		return (Assets.exists(path)) ? [for (i in Assets.getText(path).trim().split('\n')) i.trim()] : [];
 	}
+
+	inline public static function browserLoad(site:String) {
+		#if linux
+		Sys.command('/usr/bin/xdg-open', [site]);
+		#else
+		FlxG.openURL(site);
+		#end
+	}
 }

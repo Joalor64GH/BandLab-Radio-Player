@@ -84,12 +84,12 @@ class PlayState extends FlxState
         if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.RIGHT) 
         {
             FlxG.sound.play(Paths.sound('switchbtn'));
-	changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
+	    changeSong(FlxG.keys.justPressed.LEFT ? -1 : 1);
         }
 
         if (FlxG.keys.justPressed.ESCAPE) 
         {
-	FlxG.switchState(new states.MainMenuState());
+            FlxG.switchState(new states.MainMenuState());
             FlxG.sound.music.volume = 0;
         }
 

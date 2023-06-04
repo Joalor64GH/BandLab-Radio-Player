@@ -1,6 +1,7 @@
 package states;
 
 import flixel.FlxG;
+import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
@@ -20,7 +21,7 @@ class OutdatedState extends FlxState
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Hey! You're running an outdated version of \n 
 			BandLab Radio Player! \n
-            Your current version is (" + MainMenuState.gameVersion + ")! \n
+            	Your current version is (" + MainMenuState.gameVersion + ")! \n
 			Please update to " + Init.updateVersion + "!\n
 			Press ESCAPE to proceed anyway.\n
 			Thanks for playing!",
@@ -40,7 +41,6 @@ class OutdatedState extends FlxState
 		{
 			FlxG.switchState(new MainMenuState());
 		}
-
 		super.update(elapsed);
 	}
 }

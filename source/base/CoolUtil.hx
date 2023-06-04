@@ -1,7 +1,6 @@
 package base;
 
 import flixel.FlxG;
-import flixel.math.FlxMath;
 import openfl.utils.Assets;
 
 using StringTools;

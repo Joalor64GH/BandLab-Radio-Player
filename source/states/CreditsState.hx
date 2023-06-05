@@ -19,9 +19,28 @@ class CreditsState extends FlxState
 	static var curSelected:Int = 0;
 
 	private var grpCredits:FlxTypedGroup<Alphabet>;
+	
 	var credits:Array<CreditsMetadata> = [];
 	var descText:FlxText;
 	var bg:FlxSprite;
+
+	var coolColors:Array<FlxColor> = [
+		0x00000000, // Transparent
+		0xFFFFFFFF, // White
+		0xFF808080, // Gray
+		0xFF000000, // Black
+		0xFF008000, // Green
+		0xFF00FF00, // Lime
+		0xFFFFFF00, // Yellow
+		0xFFFFA500, // Orange
+		0xFFFF0000, // Red
+		0xFF800080, // Purple
+		0xFF0000FF, // Blue
+		0xFF8B4513, // Brown
+		0xFFFFC0CB, // Pink
+		0xFFFF00FF, // Magenta
+		0xFF00FFFF // Cyan
+	];
 
 	override function create()
 	{
@@ -55,7 +74,7 @@ class CreditsState extends FlxState
 		}
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuBG'));
-		bg.color = FlxColor.BLUE;
+		bg.color = randomizeColor();
 		add(bg);
 
 		descText = new FlxText(50, 600, 1180, "", 32);
@@ -135,6 +154,13 @@ class CreditsState extends FlxState
 			}
 		}
 	}
+
+	public static function randomizeColor()
+    {
+		var chance:Int = FlxG.random.int(0, coolColors.length - 1);
+		var color:FlxColor = coolColors[chance];
+		return color;
+    }
 }
 
 class CreditsMetadata

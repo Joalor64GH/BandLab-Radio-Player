@@ -24,6 +24,7 @@ typedef Song = {
 class PlayState extends FlxState
 {
     public var bg:FlxSprite;
+
     public var disc:FlxSprite = new FlxSprite(0, 0);
     public var musplayer:FlxSprite;
     public var playerneedle:FlxSprite;
@@ -46,6 +47,11 @@ class PlayState extends FlxState
         {name:"Universal Questioning", song:"universal-questioning", disc:"universal", bpm:125},
         {name:"Untitled Lo-fi Song", song:"untitled-lo-fi-song", disc:"untitled", bpm:130}
     ];
+
+    public function new() 
+    {
+        super();
+    }
 
     override public function create()
     {

@@ -20,7 +20,6 @@ class Paths
 		var path = 'assets/$file';
 		if (currentLevel != null && OpenFlAssets.exists('$currentLevel:$path'))
 			return '$currentLevel:$path';
-
 		return path;
 	}
 

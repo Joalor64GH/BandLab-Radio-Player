@@ -22,8 +22,8 @@ class OutdatedState extends FlxState
 			"Hey! You're running an outdated version of \n 
 			BandLab Radio Player! \n
             	        Your current version is (" + MainMenuState.gameVersion + ")! \n
-			Please update to " + Init.updateVersion + "!\n
-			Press ESCAPE to proceed anyway.\n
+			Press ENTER to update to " + Init.updateVersion + "!\n
+			Otherwise, press ESCAPE.\n
 			Thanks for playing!",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);

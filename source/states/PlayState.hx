@@ -60,7 +60,7 @@ class PlayState extends FlxState
         musplayer.screenCenter();
         musplayer.antialiasing = true;
         add(musplayer);
-        disc.loadGraphic(Paths.image('discs/default'));
+        disc.loadGraphic(Paths.image('radio/disc')); // default
         disc.setPosition(musplayer.x + 268, musplayer.y + 13);
         disc.antialiasing = true;
         disc.angularVelocity = 30;
@@ -123,9 +123,9 @@ class PlayState extends FlxState
         else if(curSelected < 0)
             curSelected = songs.length - 1;
 
-        if(FileSystem.exists(Paths.image('discs/${songs[curSelected].disc}'))) 
+        if(FileSystem.exists(Paths.image('radio/discs/${songs[curSelected].disc}'))) 
         {
-            disc.loadGraphic(Paths.image('discs/${songs[curSelected].disc}'));
+            disc.loadGraphic(Paths.image('radio/discs/${songs[curSelected].disc}'));
         }
         else 
         {

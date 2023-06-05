@@ -77,7 +77,7 @@
 	<icon path="embed/icons/icon64.png" size='64'/>
 	<icon path="embed/icons/iconOG.png" />
 
-	<!-- ________________________ Import Linux Stuff _____________________________ -->
+	<!-- ________________________ Import Platform-Specific Stuff _____________________________ -->
     
 	<target id="haxe" tool="linker" if="linux">
 		<lib name="/usr/lib64/libX11.so" if="HXCPP_M64" /> <!--linux support-->

@@ -24,7 +24,7 @@ class CreditsState extends FlxState
 	var descText:FlxText;
 	var bg:FlxSprite;
 
-	var coolColors:Array<FlxColor> = [
+	public static var coolColors:Array<FlxColor> = [
 		0x00000000, // Transparent
 		0xFFFFFFFF, // White
 		0xFF808080, // Gray
@@ -155,7 +155,7 @@ class CreditsState extends FlxState
 		}
 	}
 
-	function randomizeColor()
+	public static function randomizeColor()
     	{
 		var chance:Int = FlxG.random.int(0, coolColors.length - 1);
 		var color:FlxColor = coolColors[chance];

@@ -17,7 +17,7 @@ class Init extends FlxState
     override function create() 
     {
         #if desktop
-	trace('checking for update');
+	trace('checking for updates...');
 	var http = new Http("https://raw.githubusercontent.com/Joalor64GH/BandLab-Radio-Player/main/embed/gitVersion.txt");
 
 	http.onData = function(data:String) 
@@ -27,7 +27,7 @@ class Init extends FlxState
 	    trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 	    if(updateVersion != curVersion) 
 	    {
-	        trace('versions arent matching!');
+	        trace('oh noo outdated!!');
 		mustUpdate = true;
 	    }
 	}

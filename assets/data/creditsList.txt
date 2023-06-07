@@ -1,5 +1,5 @@
 Joalor64 YT:Main Programmer
-JonnycatMeow:libX11.a for Mac
+JonnycatMeow:libX11 for MacOS
 thepercentageguy:Menu Code
 zacksgamerz:Friday Night Fever Jukebox Code
 Stilic:NativeUtil

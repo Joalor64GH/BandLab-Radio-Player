@@ -137,9 +137,9 @@ class CreditsState extends FlxState
         	if (gamepad != null) {
             		trace("controller detected! :D");
 
-					var shiftMult:Int = 1;
-					if (gamepad.justPressed.RIGHT_SHOULDER)
-						shiftMult = 3;
+			var shiftMult:Int = 1;
+			if (gamepad.justPressed.RIGHT_SHOULDER)
+				shiftMult = 3;
 
             		if (gamepad.justPressed.DPAD_UP || gamepad.justPressed.DPAD_DOWN)
                 		changeSelection(gamepad.justPressed.DPAD_UP ? -shiftMult : shiftMult);

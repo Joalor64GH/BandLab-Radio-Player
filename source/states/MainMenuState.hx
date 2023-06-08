@@ -10,7 +10,7 @@ import lime.app.Application;
 class MainMenuState extends Menu
 {
 	var bg:FlxSprite;
-	public static var gameVersion:String = '0.9.9';
+	public static var gameVersion:String = '1.0.0';
 
 	override public function create()
 	{

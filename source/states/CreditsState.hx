@@ -89,13 +89,14 @@ class CreditsState extends FlxState
 		add(descText);
 
 		initOptions();
-		changeSelection();
 
 		var descText:FlxText = new FlxText(50, 600, 1180, "", 32);
 		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		descText.scrollFactor.set();
 		descText.borderSize = 2.4;
 		add(descText);
+
+		changeSelection();
 
 		super.create();
 	}
@@ -125,16 +126,20 @@ class CreditsState extends FlxState
 		if (FlxG.keys.justPressed.UP || FlxG.keys.justPressed.DOWN)
 			changeSelection(FlxG.keys.justPressed.UP ? -shiftMult : shiftMult);
 
-		if (FlxG.mouse.wheel != 0)
-			changeSelection(-Std.int(FlxG.mouse.wheel));
-
 		if (FlxG.keys.justPressed.ESCAPE)
 			FlxG.switchState(new states.MainMenuState());
+
+		if (FlxG.mouse.wheel != 0)
+			changeSelection(-Std.int(FlxG.mouse.wheel));
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
         	if (gamepad != null) {
             		trace("controller detected! :D");
+
+					var shiftMult:Int = 1;
+					if (gamepad.justPressed.RIGHT_SHOULDER)
+						shiftMult = 3;
 
             		if (gamepad.justPressed.DPAD_UP || gamepad.justPressed.DPAD_DOWN)
                 		changeSelection(gamepad.justPressed.DPAD_UP ? -shiftMult : shiftMult);

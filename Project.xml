@@ -4,7 +4,7 @@
 	<!-- _________________________ Application Settings _________________________ -->
 
 	<!--Main Stuff-->
-	<app title="BandLab Radio Player" main="Main" version="0.9.9" company="Joalor64GH" />
+	<app title="BandLab Radio Player" main="Main" version="1.0.0" company="Joalor64GH" />
 	<app file="RadioPlayer_WIN" if="windows" />
 	<app file="RadioPlayer_APP" if="linux" />
 	<app file="RadioPlayer_MAC" if="mac" />

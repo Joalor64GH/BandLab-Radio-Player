@@ -38,7 +38,7 @@ class InstructionsState extends FlxState
 		    + "\npress ESC to go back.", 32);
 	DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 	add(DisplayText);
-	var gamepadTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "Press G on your key board or X on your controller for Gamepad Controls.", 12);
+	var gamepadTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "Press G on your keyboard or X on your controller for Gamepad Controls.", 12);
 	gamepadTxt.scrollFactor.set();
 	gamepadTxt.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 	add(gamepadTxt);

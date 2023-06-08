@@ -41,7 +41,7 @@ class Init extends FlxState
 	#end
 
         if (mustUpdate) {
-            FlxG.switchState(new states.OutdatedState());
+            FlxG.switchState(new OutdatedState());
         } else {
             FlxG.switchState(new MainMenuState());
         }

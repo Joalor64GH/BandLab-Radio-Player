@@ -38,19 +38,18 @@ class InstructionsState extends FlxState
 		    + "\npress ESC to go back.", 32);
 	DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 	add(DisplayText);
-
-		var gamepadTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "Press G on your key board or X on your controller for Gamepad Controls.", 12);
-		gamepadTxt.scrollFactor.set();
-		gamepadTxt.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(gamepadTxt);
+	var gamepadTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "Press G on your key board or X on your controller for Gamepad Controls.", 12);
+	gamepadTxt.scrollFactor.set();
+	gamepadTxt.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+	add(gamepadTxt);
     }
 
     override public function update(elapsed:Float)
     {
         super.update(elapsed);
 
-		if (FlxG.keys.justPressed.G)
-	    	FlxG.switchState(new states.GamepadInstructionsState());
+	if (FlxG.keys.justPressed.G)
+	    FlxG.switchState(new states.GamepadInstructionsState());
         else if (FlxG.keys.justPressed.ESCAPE)
 	    FlxG.switchState(new states.MainMenuState());
 
@@ -59,7 +58,7 @@ class InstructionsState extends FlxState
         if (gamepad != null) {
             trace("controller detected! :D");
 
-			if (gamepad.justPressed.X)
+	    if (gamepad.justPressed.X)
                 FlxG.switchState(new states.GamepadInstructionsState());
             else if (gamepad.justPressed.B)
                 FlxG.switchState(new states.MainMenuState());

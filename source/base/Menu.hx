@@ -9,6 +9,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
 import flixel.input.gamepad.FlxGamepad;
+import lima.app.Application;
 
 using StringTools;
 
@@ -127,17 +128,17 @@ class Menu extends FlxSubState
 
 			var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
-        	if (gamepad != null) {
-            	trace("controller detected! :D");
+        		if (gamepad != null) {
+            			trace("controller detected! :D");
 
-            	if (gamepad.justPressed.DPAD_UP && !justPressedEnter && currentOption >= 0 && currentOption <= maxOptions) 
+            			if (gamepad.justPressed.DPAD_UP && !justPressedEnter && currentOption >= 0 && currentOption <= maxOptions) 
 				{
-                	currentOption--;
+                			currentOption--;
 					moveArrowUp();
 				}
 				else if (gamepad.justPressed.DPAD_DOWN && !justPressedEnter && currentOption >= 0 && currentOption <= maxOptions) 
 				{
-                	currentOption++;
+                			currentOption++;
 					moveArrowDown();
 				}
 				else if (gamepad.justPressed.A && !justPressedEnter && currentOption >= 0 && currentOption <= maxOptions)
@@ -149,8 +150,8 @@ class Menu extends FlxSubState
 					new FlxTimer().start(2, doAction, 1);
 				}
 			} else {
-            	trace("oops! no controller detected!");
-            	trace("probably bc it isnt connected or you dont have one at all.");
+            			trace("oops! no controller detected!");
+            			trace("probably bc it isnt connected or you dont have one at all.");
 			}
 		}
 	}

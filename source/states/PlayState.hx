@@ -153,10 +153,10 @@ class PlayState extends FlxState
                     }  
                 }   
             }
-		} else {
+	} else {
             trace("oops! no controller detected!");
             trace("probably bc it isnt connected or you dont have one at all.");
-		}
+	}
     }
 
     static var loadedSongs:Array<String> = [];

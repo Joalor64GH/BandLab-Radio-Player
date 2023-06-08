@@ -44,7 +44,7 @@ class GamepadInstructionsState extends FlxState
     {
         super.update(elapsed);
 		
-		if (FlxG.keys.justPressed.ESCAPE)
+	if (FlxG.keys.justPressed.ESCAPE)
 	    FlxG.switchState(new states.MainMenuState());
 
 	var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
@@ -52,7 +52,7 @@ class GamepadInstructionsState extends FlxState
         if (gamepad != null) {
             trace("controller detected! :D");
 
-			if (gamepad.justPressed.B)
+	    if (gamepad.justPressed.B)
                 FlxG.switchState(new states.MainMenuState());
 	} else {
             trace("oops! no controller detected!");

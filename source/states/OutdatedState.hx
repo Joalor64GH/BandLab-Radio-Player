@@ -50,20 +50,20 @@ class OutdatedState extends FlxState
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
-        if (gamepad != null) {
-            trace("controller detected! :D");
+        	if (gamepad != null) {
+            		trace("controller detected! :D");
 
-            if (gamepad.justPressed.START) 
+            		if (gamepad.justPressed.START) 
 			{
-                CoolUtil.browserLoad("https://github.com/Joalor64GH/BandLab-Radio-Player/releases/latest");
+                		CoolUtil.browserLoad("https://github.com/Joalor64GH/BandLab-Radio-Player/releases/latest");
 			}
-            else if (gamepad.justPressed.BACK) 
+            		else if (gamepad.justPressed.BACK) 
 			{
-                FlxG.switchState(new states.MainMenuState());
+                		FlxG.switchState(new states.MainMenuState());
 			}
 		} else {
-            trace("oops! no controller detected!");
-            trace("probably bc it isnt connected or you dont have one at all.");
+            		trace("oops! no controller detected!");
+            		trace("probably bc it isnt connected or you dont have one at all.");
 		}
 		super.update(elapsed);
 	}

@@ -32,7 +32,7 @@ class OutdatedState extends FlxState
 			If you have a game controller, press START or BACK/SELECT.\n
 			Thanks for playing!",
 			32);
-		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+		warnText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
 	}

@@ -10,7 +10,7 @@ import flixel.input.gamepad.FlxGamepad;
 
 class InstructionsState extends FlxState
 {
-	public static var gamepad:FlxGamepad;
+    public static var gamepad:FlxGamepad;
 
     public var DisplayText:FlxText;
 
@@ -34,8 +34,12 @@ class InstructionsState extends FlxState
 		    + "\nnavigate through the menus."
 		    + "\nUse LEFT and RIGHT to switch songs."
 		    + "\nPress ENTER to play the song of your choice."
+		    + "\nIf you have a controller, use the"
+		    + "\nUP, DOWN, LEFT, and RIGHT buttons on the D-Pad."
+		    + "\nYou can also use A to play songs."
 		    + "\nWhen you are done listening,"
-		    + "\npress ESC to go back.", 32);
+		    + "\npress ESC to go back."
+		    + "\nOr simply press B.", 32);
 	DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 	add(DisplayText);
     }
@@ -49,16 +53,16 @@ class InstructionsState extends FlxState
 	    FlxG.switchState(new states.MainMenuState());
 	}
 
-		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+	var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
         if (gamepad != null) {
             trace("controller detected! :D");
 
             if (gamepad.justPressed.B)
                 FlxG.switchState(new states.MainMenuState());
-		} else {
+	} else {
             trace("oops! no controller detected!");
             trace("probably bc it isnt connected or you dont have one at all.");
-		}
+	}
     }
 }

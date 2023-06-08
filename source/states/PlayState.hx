@@ -12,6 +12,8 @@ import lime.app.Application;
 import alphabet.Alphabet;
 import base.Conductor;
 
+import flixel.input.gamepad.FlxGamepad;
+
 using StringTools;
 
 typedef Song = {
@@ -23,6 +25,8 @@ typedef Song = {
 
 class PlayState extends FlxState
 {
+    public static var gamepad:FlxGamepad;
+
     public var bg:FlxSprite;
 
     public var disc:FlxSprite = new FlxSprite(0, 0);
@@ -115,6 +119,44 @@ class PlayState extends FlxState
                 }  
             }   
         }
+
+        var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+
+        if (gamepad != null) {
+            trace("controller detected! :D");
+
+            if (gamepad.justPressed.DPAD_LEFT || gamepad.justPressed.DPAD_RIGHT) 
+            {
+                FlxG.sound.play(Paths.sound('switchbtn'));
+                changeSong(gamepad.justPressed.DPAD_LEFT ? -1 : 1);
+            }
+
+            if (gamepad.justPressed.B)
+            {
+                FlxG.switchState(new states.MainMenuState());
+                FlxG.sound.music.volume = 0;
+            }
+
+            if(FlxG.sound.music != null)
+            {
+                Conductor.songPosition = FlxG.sound.music.time;
+                if (gamepad.justPressed.A)
+                {
+                    FlxG.sound.play(Paths.sound('playbtn'));
+                    if(!FlxG.sound.music.playing)
+                    {
+                        FlxG.sound.music.play();
+                    }
+                    else
+                    {
+                        FlxG.sound.music.pause();
+                    }  
+                }   
+            }
+		} else {
+            trace("oops! no controller detected!");
+            trace("probably bc it isnt connected or you dont have one at all.");
+		}
     }
 
     static var loadedSongs:Array<String> = [];

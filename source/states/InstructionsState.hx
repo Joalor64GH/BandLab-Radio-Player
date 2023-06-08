@@ -6,8 +6,12 @@ import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import flixel.FlxState;
 
+import flixel.input.gamepad.FlxGamepad;
+
 class InstructionsState extends FlxState
 {
+	public static var gamepad:FlxGamepad;
+
     public var DisplayText:FlxText;
 
     override function create()
@@ -44,5 +48,17 @@ class InstructionsState extends FlxState
 	{
 	    FlxG.switchState(new states.MainMenuState());
 	}
+
+		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+
+        if (gamepad != null) {
+            trace("controller detected! :D");
+
+            if (gamepad.justPressed.B)
+                FlxG.switchState(new states.MainMenuState());
+		} else {
+            trace("oops! no controller detected!");
+            trace("probably bc it isnt connected or you dont have one at all.");
+		}
     }
 }

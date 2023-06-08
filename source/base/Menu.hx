@@ -8,6 +8,8 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
+import flixel.input.gamepad.FlxGamepad;
+
 using StringTools;
 
 typedef MenuSelection =
@@ -22,6 +24,7 @@ class Menu extends FlxSubState
 	public static var options:Array<String>;
 	public static var includeExitBtn:Bool = true;
 	public static var callback:MenuSelection->Void;
+	public static var gamepad:FlxGamepad;
 
 	var ready:Bool = false;
 
@@ -120,6 +123,34 @@ class Menu extends FlxSubState
 				justPressedEnter = true; // lock inputs
 				FlxG.sound.play(Paths.sound('selection'));
 				new FlxTimer().start(2, doAction, 1);
+			}
+
+			var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+
+        	if (gamepad != null) {
+            	trace("controller detected! :D");
+
+            	if (gamepad.justPressed.DPAD_UP && !justPressedEnter && currentOption >= 0 && currentOption <= maxOptions) 
+				{
+                	currentOption--;
+					moveArrowUp();
+				}
+				else if (gamepad.justPressed.DPAD_DOWN && !justPressedEnter && currentOption >= 0 && currentOption <= maxOptions) 
+				{
+                	currentOption++;
+					moveArrowDown();
+				}
+				else if (gamepad.justPressed.A && !justPressedEnter && currentOption >= 0 && currentOption <= maxOptions)
+				{
+					// Close Menu action
+					flashArrow();
+					justPressedEnter = true; // lock inputs
+					FlxG.sound.play(Paths.sound('selection'));
+					new FlxTimer().start(2, doAction, 1);
+				}
+			} else {
+            	trace("oops! no controller detected!");
+            	trace("probably bc it isnt connected or you dont have one at all.");
 			}
 		}
 	}

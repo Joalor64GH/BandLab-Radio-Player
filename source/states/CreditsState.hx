@@ -9,6 +9,8 @@ import flixel.text.FlxText;
 import alphabet.Alphabet;
 import base.CoolUtil;
 
+import flixel.input.gamepad.FlxGamepad;
+
 import lime.app.Application;
 import openfl.Assets;
 
@@ -16,9 +18,11 @@ using StringTools;
 
 class CreditsState extends FlxState
 {
-	static var curSelected:Int = 0;
+	public static var gamepad:FlxGamepad;
 
 	private var grpCredits:FlxTypedGroup<Alphabet>;
+
+	static var curSelected:Int = 0;
 	
 	var credits:Array<CreditsMetadata> = [];
 	var descText:FlxText;
@@ -126,6 +130,21 @@ class CreditsState extends FlxState
 
 		if (FlxG.keys.justPressed.ESCAPE)
 			FlxG.switchState(new states.MainMenuState());
+
+		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+
+        if (gamepad != null) {
+            trace("controller detected! :D");
+
+            if (gamepad.justPressed.DPAD_UP || gamepad.justPressed.DPAD_DOWN)
+                changeSelection(gamepad.justPressed.DPAD_UP ? -1 : 1);
+
+            if (gamepad.justPressed.B)
+                FlxG.switchState(new states.MainMenuState());
+		} else {
+            trace("oops! no controller detected!");
+            trace("probably bc it isnt connected or you dont have one at all.");
+		}
 	}
 
 	function changeSelection(change:Int = 0)

@@ -59,7 +59,7 @@ class OutdatedState extends FlxState
 			}
             		else if (gamepad.justPressed.BACK) 
 			{
-                		FlxG.switchState(new states.MainMenuState());
+                		FlxG.switchState(new MainMenuState());
 			}
 		} else {
             		trace("oops! no controller detected!");

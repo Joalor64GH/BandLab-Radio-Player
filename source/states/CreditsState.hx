@@ -137,7 +137,7 @@ class CreditsState extends FlxState
             		trace("controller detected! :D");
 
             		if (gamepad.justPressed.DPAD_UP || gamepad.justPressed.DPAD_DOWN)
-                		changeSelection(gamepad.justPressed.DPAD_UP ? -1 : 1);
+                		changeSelection(gamepad.justPressed.DPAD_UP ? -shiftMult : shiftMult);
 
             		if (gamepad.justPressed.B)
                 		FlxG.switchState(new states.MainMenuState());

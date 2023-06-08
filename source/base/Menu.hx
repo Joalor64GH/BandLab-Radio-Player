@@ -9,7 +9,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
 import flixel.input.gamepad.FlxGamepad;
-import lima.app.Application;
+import lime.app.Application;
 
 using StringTools;
 

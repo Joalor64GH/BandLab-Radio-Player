@@ -106,7 +106,7 @@ class PlayState extends FlxState
         if(FlxG.sound.music != null)
         {
             Conductor.songPosition = FlxG.sound.music.time;
-            if (FlxG.keys.justPressed.ENTER)
+            if (FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.SPACE)
             {
                 FlxG.sound.play(Paths.sound('playbtn'));
                 if(!FlxG.sound.music.playing)
@@ -140,7 +140,7 @@ class PlayState extends FlxState
             if(FlxG.sound.music != null)
             {
                 Conductor.songPosition = FlxG.sound.music.time;
-                if (gamepad.justPressed.A)
+                if (gamepad.justPressed.A || gamepad.justPressed.Y)
                 {
                     FlxG.sound.play(Paths.sound('playbtn'));
                     if(!FlxG.sound.music.playing)

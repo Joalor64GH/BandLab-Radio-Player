@@ -1,6 +1,6 @@
 Joalor64 YT:Main Programmer
 JonnycatMeow:libX11 for MacOS
 thepercentageguy:Menu Code
-zacksgamerz:Friday Night Fever Jukebox Code
+zacksgamerz:Friday Night Fever Jukebox and Gallery Code
 Stilic:NativeUtil
 Gidk-g:Literally One Useful PR

@@ -9,13 +9,11 @@ import lime.app.Application;
 
 class MainMenuState extends Menu
 {
-	var bg:FlxSprite;
 	public static var gameVersion:String = '1.0.0';
+	var bg:FlxSprite;
 
 	override public function create()
 	{
-		// openfl.system.System.gc();
-
 		bg = new FlxSprite().loadGraphic(Paths.image('titleBG'));
 		add(bg);
 
@@ -24,6 +22,7 @@ class MainMenuState extends Menu
 		Menu.options = [
 			'Play', 
 			'Instructions', 
+			'Gallery',
 			'Credits',
 			'Exit'
 		];
@@ -41,9 +40,12 @@ class MainMenuState extends Menu
 					trace('Instructions');
 					FlxG.switchState(new states.InstructionsState());
 				case 2:
+					trace('Gallery');
+					FlxG.switchState(new states.GalleryState());
+				case 3:
 					trace('Credits');
 					FlxG.switchState(new states.CreditsState());
-				case 3:
+				case 4:
 					trace('Exit');
 					#if sys
 					Sys.exit(0);

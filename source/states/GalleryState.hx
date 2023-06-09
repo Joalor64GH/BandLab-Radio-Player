@@ -27,8 +27,7 @@ class GalleryState extends FlxState
     var arrows:FlxTypedGroup<FlxSprite>;
 
     var curSelected:Int = 0;
-    var images:Array<GalleryImage> = [
-        // first parameter is the image path, second one is the description, third one is the name
+    var images:Array<GalleryImage> = [ // first parameter is the image path, second one is the description, third one is the name
         new GalleryImage('gallery/arcadiamania', 'The cover for Arcadia Mania', 'Arcadia Mania Cover'),
         new GalleryImage('gallery/christmaswishes', 'The cover for Christmas Wishes.', 'Christmas Wishes Cover'),
         new GalleryImage('gallery/creepyolforest', 'The cover for Creepy Ol Forest.', 'Creepy Ol Forest Cover'),
@@ -62,9 +61,6 @@ class GalleryState extends FlxState
 
         topText = new Alphabet(0, 0, images[0].name, true);
         add(topText);
-
-        var galleryText:Alphabet = new Alphabet(0, 0, 'Gallery', true);
-        add(galleryText);
 
         text = new FlxText(10, 156, Std.int(slash.width - 85), images[0].description, 12);
         text.setFormat(Paths.font("vcr.ttf"), 36, FlxColor.WHITE, LEFT);
@@ -101,7 +97,7 @@ class GalleryState extends FlxState
             arrow.setPosition(Std.int(FlxG.width / 2) + (i == 0 ? -50 + -290 : 60 + 290), FlxG.height * 0.60);
             arrow.antialiasing = true;
             arrows.add(arrow);
-            arrow.animation.finishCallback = function(t){
+            arrow.animation.finishCallback = function(t) {
                 if(arrow.animation.curAnim.name == 'confirm')
                 {
                     arrow.animation.play('idle');
@@ -118,11 +114,11 @@ class GalleryState extends FlxState
 
         if (allowInputs) 
         {
-            if(FlxG.keys.justPressed.ESCAPE) 
-                FlxG.switchState(new MainMenuState());
-
             if(FlxG.keys.justPressed.RIGHT || FlxG.keys.justPressed.LEFT)
                 changeSelection(FlxG.keys.justPressed.RIGHT ? 1 : -1);
+            
+            if(FlxG.keys.justPressed.ESCAPE) 
+                FlxG.switchState(new MainMenuState());
 
             var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 

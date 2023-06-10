@@ -26,7 +26,7 @@ class OutdatedState extends FlxState
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Hey! You're running an outdated version of \n 
 			BandLab Radio Player! \n
-            	        Your current version is (" + MainMenuState.gameVersion + ")! \n
+			Your current version is " + MainMenuState.gameVersion + "! \n
 			Press ENTER to update to " + Init.updateVersion + "!\n
 			Otherwise, press ESCAPE.\n
 			If you have a game controller, press START or BACK/SELECT.\n

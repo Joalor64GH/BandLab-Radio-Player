@@ -28,7 +28,7 @@ class GalleryState extends FlxState
 
     var curSelected:Int = 0;
     var images:Array<GalleryImage> = [ // first parameter is the image path, second one is the description, third one is the name
-        new GalleryImage('gallery/arcadiamania', 'The cover for Arcadia Mania', 'Arcadia Mania Cover'),
+        new GalleryImage('gallery/arcadiamania', 'The cover for Arcadia Mania.', 'Arcadia Mania Cover'),
         new GalleryImage('gallery/christmaswishes', 'The cover for Christmas Wishes.', 'Christmas Wishes Cover'),
         new GalleryImage('gallery/creepyolforest', 'The cover for Creepy Ol Forest.', 'Creepy Ol Forest Cover'),
         new GalleryImage('gallery/dreamylofibeats', 'The cover for Dreamy Lo-fi Beats.', 'Dreamy Lo-fi Beats Cover'),

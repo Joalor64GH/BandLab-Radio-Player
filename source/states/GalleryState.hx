@@ -29,11 +29,14 @@ class GalleryState extends FlxState
     var curSelected:Int = 0;
     var images:Array<GalleryImage> = [ // first parameter is the image path, second one is the description, third one is the name
         new GalleryImage('gallery/arcadiamania', 'The cover for Arcadia Mania.', 'Arcadia Mania Cover'),
+        new GalleryImage('gallery/ascension', 'The cover for Ascension.', 'Ascension Cover'),
         new GalleryImage('gallery/christmaswishes', 'The cover for Christmas Wishes.', 'Christmas Wishes Cover'),
         new GalleryImage('gallery/creepyolforest', 'The cover for Creepy Ol Forest.', 'Creepy Ol Forest Cover'),
         new GalleryImage('gallery/dreamylofibeats', 'The cover for Dreamy Lo-fi Beats.', 'Dreamy Lo-fi Beats Cover'),
+        new GalleryImage('gallery/foreverconfusing', 'The cover for Forever Confusing.', 'Forever Confusing Cover'),
         new GalleryImage('gallery/gamedevelopment', 'The cover for Game Development.', 'Game Development Cover'),
         new GalleryImage('gallery/gbacliche', 'The cover for GBA Cliche.', 'GBA Cliche Cover'),
+        new GalleryImage('gallery/newera', 'The cover for New Era.', 'New Era Cover'),
         new GalleryImage('gallery/nighttimegaming', 'The cover for Nighttime Gaming.', 'Nighttime Gaming Cover'),
         new GalleryImage('gallery/nighttimegamingremix', 'The cover for Nighttime Gaming REMIX.', 'Nighttime Gaming REMIX Cover'),
         new GalleryImage('gallery/pureindianvibes', 'The cover for Pure Indian Vibes.', 'Pure Indian Vibes Cover'),

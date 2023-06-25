@@ -55,7 +55,7 @@ class PlayState extends FlxState
         {name:"Untitled Lo-fi Song", song:"untitled-lo-fi-song", disc:"untitled", bpm:130}
     ];
 
-    public function new() {}
+    public function new() {super();}
 
     override public function create()
     {

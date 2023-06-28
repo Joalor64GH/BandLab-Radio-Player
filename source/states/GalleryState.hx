@@ -83,9 +83,8 @@ class GalleryState extends FlxState
         for(i in 0...2)
         {
             var arrow:FlxSprite = new FlxSprite(0, 0);
-            arrow.frames = Paths.getSparrowAtlas('notes');
-            if(i == 0)
-            {
+            arrow.frames = Paths.getSparrowAtlas('ui/notes');
+            if(i == 0) {
                 arrow.animation.addByPrefix('idle', 'arrowLEFT');
                 arrow.animation.addByPrefix('pressed', 'left press', 24, false);
                 arrow.animation.addByPrefix('confirm', 'left confirm', 24, false);

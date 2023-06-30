@@ -81,7 +81,7 @@ class PlayState extends FlxState
         add(playerneedle);
 
         songTxt = new Alphabet(0, 0, songs[curSelected].name, true);
-        songTxt.setPosition(50, musplayer.y - 120);
+        songTxt.screenCenter(X);
         add(songTxt);
 
         changeSong();

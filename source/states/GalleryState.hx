@@ -39,6 +39,7 @@ class GalleryState extends FlxState
         new GalleryImage('gallery/newera', 'The cover for New Era.', 'New Era Cover'),
         new GalleryImage('gallery/nighttimegaming', 'The cover for Nighttime Gaming.', 'Nighttime Gaming Cover'),
         new GalleryImage('gallery/nighttimegamingremix', 'The cover for Nighttime Gaming REMIX.', 'Nighttime Gaming REMIX Cover'),
+        new GalleryImage('gallery/pixelbirthdaybash', 'The cover for Pixel Birthday Bash.', 'Pixel Birthday Bash Cover'),
         new GalleryImage('gallery/pureindianvibes', 'The cover for Pure Indian Vibes.', 'Pure Indian Vibes Cover'),
         new GalleryImage('gallery/relaxingeveninglofi', 'The cover for Relaxing Evening Lo-fi.', 'Relaxing Evening Lo-fi Cover'),
         new GalleryImage('gallery/silvercandy', 'The cover for Silver Candy.', 'Silver Candy Cover'),
@@ -167,7 +168,6 @@ class GalleryState extends FlxState
         image.loadGraphic(Paths.image(images[curSelected].path));
         image.scale.x = 1;
         image.scale.y = 1;
-        
         while(image.width > 450)
         {
             image.scale.x -= 0.05;
@@ -183,8 +183,7 @@ class GalleryState extends FlxState
             allowInputs = true;
         }});
 
-        if(curSelected != images.length - 1)
-        {
+        if(curSelected != images.length - 1) {
             rightImage.visible = true;
             rightImage.loadGraphic(Paths.image(images[curSelected + 1].path));
             rightImage.scale.x = 1;
@@ -203,8 +202,7 @@ class GalleryState extends FlxState
             rightImage.visible = false;
         }
 
-        if(curSelected != 0)
-        {
+        if(curSelected != 0) {
             leftImage.visible = true;
             leftImage.loadGraphic(Paths.image(images[curSelected - 1].path));
             leftImage.scale.x = 1;

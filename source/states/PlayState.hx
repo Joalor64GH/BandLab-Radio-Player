@@ -28,7 +28,6 @@ class PlayState extends FlxState
     public static var gamepad:FlxGamepad;
 
     public var bg:FlxSprite;
-
     public var disc:FlxSprite = new FlxSprite(0, 0);
     public var musplayer:FlxSprite;
     public var playerneedle:FlxSprite;
@@ -48,6 +47,7 @@ class PlayState extends FlxState
         {name:"New Era", song:"new-era", disc:"new", bpm:125},
         {name:"Nighttime Gaming", song:"nighttime-gaming", disc:"nighttime", bpm:120},
         {name:"Nighttime Gaming REMIX", song:"nighttime-gaming-remix", disc:"nighttimere", bpm:130},
+        {name:"Pixel Birthday Bash", song:"pixel-birthday-bash", disc:"pixel", bpm:100},
         {name:"Pure Indian Vibes", song:"pure-indian-vibes", disc:"pure", bpm:100},
         {name:"Relaxing Evening Lo-fi", song:"relaxing-evening-lo-fi", disc:"relaxing", bpm:120},
         {name:"Silver Candy", song:"silver-candy", disc:"silver", bpm:135},
@@ -81,7 +81,7 @@ class PlayState extends FlxState
         add(playerneedle);
 
         songTxt = new Alphabet(0, 0, songs[curSelected].name, true);
-        songTxt.screenCenter(X);
+        songTxt.setPosition(50, musplayer.y - 120);
         add(songTxt);
 
         changeSong();

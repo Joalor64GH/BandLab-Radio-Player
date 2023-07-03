@@ -16,21 +16,6 @@
         "version": null
       },
       {
-        "name": "flixel-addons",
-        "type": "haxelib",
-        "version": null
-      },
-      {
-        "name": "flixel-tools",
-        "type": "haxelib",
-        "version": null
-      },
-      {
-        "name": "flixel-ui",
-        "type": "haxelib",
-        "version": null
-      },
-      {
         "name": "hxcpp",
         "type": "haxelib",
         "version": null

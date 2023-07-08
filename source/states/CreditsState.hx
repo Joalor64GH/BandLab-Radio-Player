@@ -63,7 +63,13 @@ class CreditsState extends FlxState
 		{
 			trace("OOPS! Could not find 'creditsList.txt'!");
 			trace("Replacing it with normal credits...");
-			initCreditlist = "Joalor64 YT:Main Programmer".trim().split('\n');
+			initCreditlist = "Joalor64 YT:Main Programmer\n
+			JonnycatMeow:libX11 for MacOS\n
+			thepercentageguy:Menu Code\n
+			zacksgamerz:Friday Night Fever Jukebox and Gallery Code\n
+			Stilic:NativeUtil\n
+			Gidk-g:Literally One Useful PR".trim()
+				.split('\n');
 
 			for (i in 0...initCreditlist.length)
 			{
